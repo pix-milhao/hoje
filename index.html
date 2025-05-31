@@ -1,0 +1,601 @@
+<html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pix do Milhão</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="css/css2.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="css/bootstrap-icons.min.css" rel="stylesheet">
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const utms = {};
+    for (const [key, value] of params.entries()) {
+      if (key.startsWith('utm')) {
+        utms[key] = value;
+      }
+    }
+    if (Object.keys(utms).length > 0) {
+      localStorage.setItem('utm_lead', JSON.stringify(utms));
+    }
+  </script>
+
+</head>
+
+<body>
+  <!-- <script>
+    // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+    const link = 'https://vivasortehoje.github.io/redirect/';
+
+    function setBackRedirect(url) {
+      let urlBackRedirect = url;
+      urlBackRedirect = urlBackRedirect =
+        urlBackRedirect.trim() +
+        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+        document.location.search.replace('?', '').toString();
+
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+
+      window.addEventListener('popstate', () => {
+        console.log('onpopstate', urlBackRedirect);
+        setTimeout(() => {
+          location.href = urlBackRedirect;
+        }, 1);
+      });
+    }
+
+    setBackRedirect(link);
+  </script> -->
+
+
+
+
+
+  <header class="white-header">
+    <div class="logo">
+      <img src="images/logo-pixdomilhao.webp" alt="Logomarca" class="logoviva">
+    </div>
+    <!-- <button class="menu-button" id="menuButton">
+      0
+    </button> -->
+  </header>
+
+  <meta charset="utf-8">
+
+
+
+  <div class="banner">
+
+
+    <div class="container-banner">
+
+      <div id="carouselExampleSlidesOnly" class="carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <style>
+            #carouselExampleSlidesOnly {
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 1);
+              border-radius: 24px;
+            }
+
+            .slider {
+              position: relative;
+              width: 800px;
+              max-width: 100%;
+              overflow: hidden;
+              margin: auto;
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 1);
+            }
+
+            .slides {
+              display: flex;
+              transition: transform 0.5s ease-in-out;
+            }
+
+            .slide {
+              min-width: 100%;
+              object-fit: cover;
+            }
+
+            .nav {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              background: rgba(0, 0, 0, 0.5);
+              color: #fff;
+              border: none;
+              padding: 10px;
+              cursor: pointer;
+              font-size: 24px;
+              z-index: 1;
+            }
+
+            .prev {
+              left: 10px;
+            }
+
+            .next {
+              right: 10px;
+            }
+          </style>
+
+          <div class="carousel-item active">
+            <div class="tag-compre-agora">
+              <span>Site Oficial</span>
+            </div>
+
+            <!-- <img src="images/1m.jpg" class="d-block w-100" alt="..."> -->
+            <div class="slider">
+              <div class="slides">
+                <img src="images/1.webp" class="slide">
+                <img src="images/2.webp" class="slide">
+                <img src="images/3.webp" class="slide">
+                <img src="images/4.webp" class="slide">
+              </div>
+              <button class="nav prev">❮</button>
+              <button class="nav next">❯</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <script>
+        const slides = document.querySelector('.slides');
+        const slide = document.querySelectorAll('.slide');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+
+        let indexx = 0;
+
+        function showSlide(i) {
+          indexx = (i + slide.length) % slide.length;
+          slides.style.transform = `translateX(${-indexx * 100}%)`;
+        }
+
+        prev.addEventListener('click', () => showSlide(indexx - 1));
+        next.addEventListener('click', () => showSlide(indexx + 1));
+
+        // Troca automática a cada 5s
+        setInterval(() => showSlide(indexx + 1), 5000);
+
+      </script>
+
+      <!--
+      <div class="infos-banner">
+              <h1>Pix do Milhão - 02/06/2024</h1> 
+              <h2>DOM, 02 JUN | 2024</h2> 
+              <h3>PORSCHE + BMW + RAM POR APENAS 99 CENTAVOS!</h3>        
+      </div>
+  -->
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+  <!-- <div class="sorteio-date w-100 text-center">
+    <h1>Sorteio HOJE <span style="background-color: #f0ad4e;" id="contador"></span> por apenas <span
+        style="background-color: #2f4eb5;">R$0,99</span> </h1>
+  </div> -->
+
+
+  <script>
+    function atualizarContador() {
+      var span = document.getElementById('contador');
+      span.textContent = '0 dias';
+    }
+
+    atualizarContador();
+  </script>
+
+
+  <div class="container-principal">
+
+    <!-- BANNER -->
+
+    <!-- COTAS -->
+
+    <div class="cotas">
+
+      <div class="cotas-one">
+        <button type="button" class="cota" onclick="selecionarValor(20)">
+          <div class="cota-qtd">
+            +20
+          </div>
+          <h1>R$19,80</h1>
+          <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota" onclick="selecionarValor(30)">
+          <div class="cota-qtd">
+            +30
+          </div>
+          <h1>R$29,70</h1>
+          <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota" onclick="selecionarValor(40)">
+          <div class="cota-qtd">
+            +40
+          </div>
+          <h1>R$39,60</h1>
+          <h2>SELECIONAR</h2>
+        </button>
+
+
+
+      </div>
+
+      <div class="cotas-one">
+
+        <button type="button" class="cota" onclick="selecionarValor(50)">
+          <i class="bi bi-fire destaque">Mais popular</i>
+          <div class="cota-qtd">
+            +50
+          </div>
+          <h1>R$48,50</h1>
+          <h2>SELECIONAR</h2>
+        </button>
+
+
+
+        <button type="button" class="cota" onclick="selecionarValor(70)">
+          <div class="cota-qtd">
+            +70
+          </div>
+          <h1>R$69,30</h1>
+          <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota" onclick="selecionarValor(100)">
+          <div class="cota-qtd">
+            +100
+          </div>
+          <h1>R$99,00</h1>
+          <h2>SELECIONAR</h2>
+        </button>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container-principal">
+
+
+    <div class="contador-cotas">
+      <span>
+        <button type="button" class="btn-contador-cotas" onclick="decrementar()">-</button>
+      </span>
+      <input type="number" id="numero" class="input-contador-cotas" value="0" min="0" oninput="highlightButton()">
+      <span>
+        <button type="button" class="btn-contador-cotas" onclick="incrementar()">+</button>
+      </span>
+    </div>
+
+    <button type="button" id="btn-adicionar-carrinho" class="adc-carrinho" onclick="adicionarAoCarrinho()" disabled="">
+      <i class="bi bi-cart-fill"></i> COMPRAR TÍTULOS
+    </button>
+
+
+
+    <div class="sorteio-date w-100 text-center" style="margin-top: 5px;">
+      <br>
+      <h1 style="font-size: 0.72rem;">Comprar mais títulos aumenta suas chances de ganhar!</h1>
+
+      <!-- <div class="container-principal">
+        <div class="hospital">
+
+          <div class="card-hospital">
+            <div class="card-hospital-image">
+              <img src="images/logo-hospital.svg">
+              <h2>Instituição beneficiada</h2>
+            </div>
+            <div class="card-hospital-text">
+              <p>O Hospital do Câncer de Londrina, fundado em 08 de novembro de 1965 por Lucilla Pinto Ballalai, foi
+                originalmente chamado Centro Norte Paranaense de Pesquisas Médicas. Criado com o objetivo de melhorar o
+                tratamento do câncer e a qualidade de vida, o hospital focava inicialmente na prevenção do câncer de
+                colo de útero entre as mulheres de Londrina e região. A instituição sempre buscou aprimorar seus
+                recursos humanos, científicos e tecnológicos.</p>
+            </div>
+          </div>
+
+          <div class="card-hospital card-hospital-bg-azul">
+            <div class="card-hospital-image">
+              <img src="images/viva-hosp.svg">
+              <h2>Viva Privilégios</h2>
+            </div>
+            <div class="card-hospital-text">
+              <p>Viva Privilégios, um programa que enriquece sua vida com acesso saúde, alimentação, transporte e mais.
+                Com cada compra, acumule pontos para trocar por consultas médicas, receber cashback, e utilizar serviços
+                de telefonia e apps de transporte e alimentação. Eleve sua qualidade de vida e desfrute de mais
+                conveniência e economia!</p>
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+
+  <section class="ganhadores">
+    <h1 class="titulo-ganhadores">Conheça nossos <span>Ganhadores!</span></h1>
+    <div class="video-grid">
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/LCHlfHcbOE4" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/0fxbEf8agIs" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/j0-rMLC_kO4" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/G_QcVlsWA7Y" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </section>
+  <link href="css/rodape.css" rel="stylesheet">
+
+
+  <div class="rodape">
+    <div class="container-principal">
+      <div>
+        <div>
+          <img class="logo-rodape" src="images/logo-pixdomilhao.webp">
+          <p style="margin-top: 16px;"><b>Prêmios incríveis</b>, que podem
+            <br>
+            mudar o seu estilo de <b>vida!</b>
+          </p>
+          <img class="logo-rodape-aplicap" src="images/aplicap-logo.webp">
+        </div>
+        <div class="redes">
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter"></i>
+          <i class="bi bi-youtube"></i>
+        </div>
+
+      </div>
+
+
+      <h1 style="text-align: center;">Processo SUSEP nº 15414.623658.2025-66, 15414.623660.2025-35, 15414.623630.2025-29
+        Sorteios lastreados em
+        Títulos de Capitalização da modalidade incentivo emitidos pela Aplicap Capitalização S/A, CNPJ:
+        13.122.801/0001-71. É vedada participação por menores de 18 (dezoito) anos conforme legislação aplicável.
+        Telefone de Atendimento: (51) 3584-1393. Ouvidoria: 0800 642 8080. Os prêmios serão pagos moeda corrente
+        nacional. As condições gerais do produto podem ser consultadas no endereço eletrônico www.gov.br/susep/pt-br e
+        nos termos dispostos por PIX DO MILHAO, PREMIOS E EBOOKS LTDA CNPJ: 58.534.909/0001-00. Antes de contratar,
+        consulte o Regulamento do produto. Os sorteios e entrega dos prêmios serão realizados de acordo com os critérios
+        estabelecidos neste site, nos termos seguintes: O adquirente concorrer: em todos os sorteios previstos no
+        bilhete digital emitido, mesmo sendo contemplado em alguns deles. Ao contribuir, o titular do BILHETE Digital
+        concorda desde já e sem ônus a utilizar o seu nome, sua voz e imagem para a divulgação desta campanha social.
+        Confira o resultado dos sorteios e as condições de participação em nosso site oficial</h1>
+
+      <h1 style="text-align: center;">É proibida a venda de Título de Capitalização a menores de 18 (dezoito) anos (Art.
+        3º do Código Civil);
+        <br>
+        Número de telefone do atendimento Aplicap: (51) 3584-1393 e número da ouvidoria: 0800 642 8080.
+        <br>
+        Imagens meramente ilustrativasv0.0.5
+      </h1>
+    </div>
+  </div>
+
+  <!-- BOTÃO + E - -->
+  <script>
+    const precoPorUnidade = 0.99;
+
+    function incrementar() {
+      var input = document.getElementById('numero');
+      var valorAtual = parseInt(input.value);
+      if (valorAtual < 100) {
+        if (valorAtual === 0) {
+          input.value = 20;
+        } else if (valorAtual === 20) {
+          input.value = 30;
+        } else if (valorAtual === 30) {
+          input.value = 40;
+        } else if (valorAtual === 40) {
+          input.value = 50;
+        } else if (valorAtual === 50) {
+          input.value = 70;
+        } else {
+          input.value = 100;
+        }
+      }
+      highlightButton();
+    }
+
+    function decrementar() {
+      var input = document.getElementById('numero');
+      var valorAtual = parseInt(input.value);
+      if (valorAtual > 20) {
+        if (valorAtual === 100) {
+          input.value = 70;
+        } else if (valorAtual === 70) {
+          input.value = 50;
+        } else if (valorAtual === 50) {
+          input.value = 40;
+        } else if (valorAtual === 40) {
+          input.value = 30;
+        } else if (valorAtual === 30) {
+          input.value = 20;
+        }
+      }
+      highlightButton();
+    }
+
+    function highlightButton() {
+      var input = document.getElementById('numero');
+      var valorAtual = parseInt(input.value);
+      var botoesCotas = document.querySelectorAll('.cota');
+      var botaoAdicionarCarrinho = document.getElementById('btn-adicionar-carrinho');
+      var valorTotal = document.getElementById('valor-total');
+      var link;
+
+      botoesCotas.forEach(function (botao) {
+        botao.classList.remove('cota-selected');
+        var valorBotao = parseInt(botao.querySelector('.cota-qtd').innerText.trim());
+        if (valorBotao === valorAtual) {
+          botao.classList.add('cota-selected');
+          switch (valorBotao) {
+            case 20:
+              link = "https://pay.compraseguraapayy.com/checkout/edacba33-65a8-4c0a-905d-a3e87b954559";
+              break;
+            case 30:
+              link = "https://pay.compraseguraapayy.com/checkout/0c04d3fe-8419-4070-9e7e-c60e66764cac";
+              break;
+            case 40:
+              link = "https://pay.compraseguraapayy.com/checkout/63f68827-7eab-44b0-9646-103be37d4bca";
+              break;
+            case 50:
+              link = "https://pay.compraseguraapayy.com/checkout/8cbe3c38-f604-457f-8a4b-8709165a7ade";
+              break;
+            case 70:
+              link = "https://pay.compraseguraapayy.com/checkout/1bbccaca-91b3-4421-9d9b-cb324ac60dcb";
+              break;
+            case 100:
+              link = "https://pay.compraseguraapayy.com/checkout/5240e743-b2f4-48aa-a16a-bee3c8ee8eab";
+              break;
+
+            default:
+              break;
+          }
+          botaoAdicionarCarrinho.setAttribute('onclick', 'adicionarAoCarrinho("' + link + '")');
+        }
+      });
+
+      if (valorAtual === 0) {
+        botaoAdicionarCarrinho.disabled = true;
+        valorTotal.innerText = "R$ 0,00";
+      } else {
+        botaoAdicionarCarrinho.disabled = false;
+        valorTotal.innerText = "R$ " + (valorAtual * precoPorUnidade).toFixed(2).replace('.', ',');
+      }
+    }
+
+    function selecionarValor(valor) {
+      var input = document.getElementById('numero');
+      input.value = valor;
+      highlightButton();
+    }
+
+    function adicionarAoCarrinho(link) {
+      window.location.href = link + window.location.search;
+    }
+
+    document.getElementById('numero').addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, ''); // Apenas números permitidos
+      var valor = parseInt(this.value);
+      if (valor > 500) {
+        this.value = 500;
+      } else if (valor < 10) {
+        this.value = 0;
+      } else if (valor % 10 !== 0) {
+        this.value = Math.floor(valor / 10) * 10;
+      }
+      highlightButton();
+    });
+
+  </script>
+
+  <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <title>Pop-ups de Compras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+    }
+
+    .popup {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background-color: #d4edda;
+      border-left: 6px solid #28a745;
+      color: #155724;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+      z-index: 9999;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+
+
+  <div class="popup" id="popup" style="display: block;">João P. acabou de comprar 100 cotas!</div>
+
+  <!-- Som de notificação -->
+  <audio id="notifySound" preload="auto">
+    <source src="beep-07.html" type="audio/wav">
+    Seu navegador não suporta o formato de áudio.
+  </audio>
+
+  <script>
+    const mensagens = [
+      "João P. acabou de comprar 100 cotas!",
+      "Larissa F. acabou de comprar 70 cotas!",
+      "Diego S. acabou de comprar 70 cotas!",
+      "Juliana M. acabou de comprar 100 cotas!",
+      "Bruno T. acabou de comprar 200 cotas!",
+      "Carla R. acabou de comprar 70 cotas!",
+      "Felipe N. acabou de comprar 30 cotas!",
+      "Amanda C. acabou de comprar 40 cotas!",
+      "Pedro V. acabou de comprar 70 cotas!",
+      "Thais L. acabou de comprar 100 cotas!",
+      // Continue adicionando até 100
+    ];
+
+    const popup = document.getElementById('popup');
+    const notifySound = document.getElementById('notifySound');
+
+    let index = 0;
+
+    function mostrarPopup() {
+      if (index >= mensagens.length) return;
+
+      popup.innerText = mensagens[index];
+      popup.style.display = 'block';
+      notifySound.play(); // Toca o som de notificação
+
+      setTimeout(() => {
+        popup.style.display = 'none';
+        index++;
+        setTimeout(mostrarPopup, 5000); // Exibe o próximo pop-up após 5 segundos
+      }, 4000); // Pop-up fica visível por 4 segundos
+    }
+
+    window.onload = () => {
+      setTimeout(mostrarPopup, 1000); // Começa após 1 segundo
+    };
+  </script>
+
+
+</body></html>
